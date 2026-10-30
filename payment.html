@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - Maharashtra Bus Booking</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8fb;
+            color: #333;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #063b66;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 35px;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 17px;
+        }
+
+        /* PAYMENT CONTAINER */
+
+        .payment-container {
+            width: 90%;
+            max-width: 650px;
+            margin: 35px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow:
+                0 7px 25px rgba(0, 0, 0, 0.10);
+        }
+
+        .payment-container h2 {
+            text-align: center;
+            color: #063b66;
+            margin-top: 0;
+        }
+
+        /* SUMMARY */
+
+        .summary {
+            background: #f1f7fb;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #ff8c00;
+        }
+
+        .summary p {
+            margin: 12px 0;
+            font-size: 16px;
+        }
+
+        .summary b {
+            color: #063b66;
+        }
+
+        .amount {
+            color: #ff8c00;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* FORM */
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            color: #063b66;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border: 2px solid #0878b8;
+        }
+
+        /* PAY BUTTON */
+
+        .pay-button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 25px;
+            background: #ff8c00;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .pay-button:hover {
+            background: #e67600;
+        }
+
+        .demo-note {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* BACK BUTTON */
+
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto 0;
+            padding: 11px;
+            text-align: center;
+            text-decoration: none;
+            color: #063b66;
+            border: 1px solid #063b66;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background: #063b66;
+            color: white;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 500px) {
+
+            .payment-container {
+                width: 94%;
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>
+            💳 Payment
+        </h1>
+
+        <p>
+            Complete your Maharashtra bus booking
+        </p>
+
+    </header>
+
+
+    <!-- PAYMENT CONTAINER -->
+
+    <div class="payment-container">
+
+        <h2>
+            Payment Details
+        </h2>
+
+
+        <!-- BOOKING SUMMARY -->
+
+        <div class="summary">
+
+            <p>
+                <b>🚌 Bus:</b>
+                <span id="busName">-</span>
+            </p>
+
+            <p>
+                <b>📍 From:</b>
+                <span id="fromCity">-</span>
+            </p>
+
+            <p>
+                <b>🎯 To:</b>
+                <span id="toCity">-</span>
+            </p>
+
+            <p>
+                <b>💺 Selected Seats:</b>
+                <span id="seatNumbers">-</span>
+            </p>
+
+            <p>
+                <b>💰 Total Amount:</b>
+
+                <span class="amount">
+
+                    ₹<span id="totalAmount">0</span>
+
+                </span>
+
+            </p>
+
+        </div>
+
+
+        <!-- PAYMENT FORM -->
+
+        <form id="paymentForm">
+
+
+            <label>
+                Card Number
+            </label>
+
+            <input
+                type="text"
+                id="cardNumber"
+                placeholder="Enter 16 digit card number"
+                maxlength="16"
+                inputmode="numeric"
+                required
+            >
+
+
+            <label>
+                Card Holder Name
+            </label>
+
+            <input
+                type="text"
+                id="cardName"
+                placeholder="Enter card holder name"
+                required
+            >
+
+
+            <label>
+                Expiry Date
+            </label>
+
+            <input
+                type="text"
+                id="expiry"
+                placeholder="MM/YY"
+                maxlength="5"
+                required
+            >
+
+
+            <label>
+                CVV
+            </label>
+
+            <input
+                type="password"
+                id="cvv"
+                placeholder="Enter 3 digit CVV"
+                maxlength="3"
+                inputmode="numeric"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="pay-button">
+
+                💳 Pay Now
+
+            </button>
+
+        </form>
+
+
+        <a
+            href="seats.html"
+            class="back-button">
+
+            ← Back to Seats
+
+        </a>
+
+
+        <p class="demo-note">
+
+            🔒 Demo payment for college project only.
+            No real payment is processed.
+
+        </p>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        /* ================================
+           GET BOOKING DATA
+        ================================= */
+
+        var busName =
+            localStorage.getItem("busName") ||
+            "Maharashtra Express";
+
+
+        var from =
+            localStorage.getItem("from") ||
+            "-";
+
+
+        var to =
+            localStorage.getItem("to") ||
+            "-";
+
+
+        /*
+            IMPORTANT:
+
+            seats.js stores selectedSeats
+            as a normal string.
+
+            Example:
+            "V1, V2, 5, 7"
+
+            So we DO NOT use JSON.parse().
+        */
+
+        var selectedSeats =
+            localStorage.getItem("selectedSeats") ||
+            "";
+
+
+        var totalAmount =
+            localStorage.getItem("totalAmount") ||
+            "0";
+
+
+        /* ================================
+           DISPLAY BOOKING DATA
+        ================================= */
+
+        document.getElementById("busName").innerText =
+            busName;
+
+
+        document.getElementById("fromCity").innerText =
+            from;
+
+
+        document.getElementById("toCity").innerText =
+            to;
+
+
+        document.getElementById("seatNumbers").innerText =
+            selectedSeats || "None";
+
+
+        document.getElementById("totalAmount").innerText =
+            totalAmount;
+
+
+        /* ================================
+           PAYMENT
+        ================================= */
+
+        document.getElementById("paymentForm")
+            .addEventListener(
+                "submit",
+                function(event) {
+
+                    event.preventDefault();
+
+
+                    var cardNumber =
+                        document.getElementById(
+                            "cardNumber"
+                        ).value.trim();
+
+
+                    var cardName =
+                        document.getElementById(
+                            "cardName"
+                        ).value.trim();
+
+
+                    var expiry =
+                        document.getElementById(
+                            "expiry"
+                        ).value.trim();
+
+
+                    var cvv =
+                        document.getElementById(
+                            "cvv"
+                        ).value.trim();
+
+
+                    /* CARD NUMBER */
+
+                    if (
+                        cardNumber.length !== 16 ||
+                        isNaN(cardNumber)
+                    ) {
+
+                        alert(
+                            "Please enter a valid 16 digit card number."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* CARD HOLDER */
+
+                    if (
+                        cardName === ""
+                    ) {
+
+                        alert(
+                            "Please enter card holder name."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* EXPIRY */
+
+                    if (
+                        expiry.length !== 5 ||
+                        expiry.charAt(2) !== "/"
+                    ) {
+
+                        alert(
+                            "Please enter expiry date in MM/YY format."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* CVV */
+
+                    if (
+                        cvv.length !== 3 ||
+                        isNaN(cvv)
+                    ) {
+
+                        alert(
+                            "Please enter a valid 3 digit CVV."
+                        );
+
+                        return;
+
+                    }
+
+
+                    /* SAVE PASSENGER NAME */
+
+                    localStorage.setItem(
+                        "passengerName",
+                        cardName
+                    );
+
+
+                    /* PAYMENT STATUS */
+
+                    localStorage.setItem(
+                        "paymentStatus",
+                        "Payment Successful"
+                    );
+
+
+                    /* SUCCESS MESSAGE */
+
+                    alert(
+                        "Payment Successful! Your bus ticket is booked."
+                    );
+
+
+                    /* GO TO CONFIRMATION */
+
+                    window.location.href =
+                        "confirmation.html";
+
+                }
+            );
+
+
+    </script>
+
+
+</body>
+
+</html>

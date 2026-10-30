@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Select Your Seat</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <h2>
+            🚌 Maharashtra Bus
+        </h2>
+
+        <div>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="busses.html">
+                Buses
+            </a>
+
+            <a href="tracking.html">
+                Find Bus
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="hero seat-hero">
+
+        <h1>
+            Select Your Seat
+        </h1>
+
+        <p>
+            Choose your preferred seat for the journey
+        </p>
+
+    </section>
+
+
+
+    <!-- JOURNEY INFORMATION -->
+
+    <div class="seat-page">
+
+
+        <div class="seat-journey-info">
+
+            <div>
+
+                <span>
+                    Bus
+                </span>
+
+                <strong id="busName">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    From
+                </span>
+
+                <strong id="fromCity">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    To
+                </span>
+
+                <strong id="toCity">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Fare
+                </span>
+
+                <strong>
+                    ₹<span id="busFare">0</span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SEAT AREA -->
+
+        <div class="seat-box">
+
+
+            <h2>
+                🚌 Bus Seating Layout
+            </h2>
+
+
+            <p class="seat-instruction">
+                Select one or more available seats
+            </p>
+
+
+
+            <!-- DRIVER -->
+
+            <div class="driver-area">
+
+                <div class="steering">
+                    🛞
+                </div>
+
+                <span>
+                    Driver
+                </span>
+
+            </div>
+
+
+
+            <!-- BUS SEATS -->
+
+            <div
+                id="seatLayout"
+                class="custom-seat-layout">
+
+            </div>
+
+
+
+            <!-- LEGEND -->
+
+            <div class="seat-legend">
+
+
+                <div>
+
+                    <span class="legend-seat available"></span>
+
+                    Available
+
+                </div>
+
+
+                <div>
+
+                    <span class="legend-seat selected"></span>
+
+                    Selected
+
+                </div>
+
+
+                <div>
+
+                    <span class="legend-seat booked"></span>
+
+                    Booked
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SELECTED INFORMATION -->
+
+            <div class="selected-info">
+
+                <p>
+
+                    Selected Seats:
+
+                    <strong id="selectedSeats">
+                        None
+                    </strong>
+
+                </p>
+
+
+                <p>
+
+                    Total Amount:
+
+                    <strong>
+                        ₹<span id="totalAmount">0</span>
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+
+            <!-- PAYMENT BUTTON -->
+
+            <button
+                class="continue-button"
+                onclick="continuePayment()">
+
+                Continue to Payment →
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            🚌 Maharashtra Bus Booking System
+        </p>
+
+        <p>
+            BSc Computer Science Mini Project
+        </p>
+
+        <p>
+            © 2026 All Rights Reserved
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/seats.js"></script>
+
+
+</body>
+
+</html>

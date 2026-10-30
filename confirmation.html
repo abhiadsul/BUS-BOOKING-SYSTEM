@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Confirmation - Maharashtra Bus</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8fb;
+            color: #333;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #063b66;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 35px;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 18px;
+        }
+
+        /* TICKET */
+
+        .ticket {
+            width: 90%;
+            max-width: 750px;
+            margin: 35px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow:
+                0 7px 25px rgba(0, 0, 0, 0.10);
+        }
+
+        /* CONFIRMED */
+
+        .confirmed {
+            text-align: center;
+            color: #20a844;
+            font-size: 28px;
+            margin-top: 0;
+        }
+
+        /* BOOKING ID */
+
+        .booking-id {
+            text-align: center;
+            background: #f1f7fb;
+            padding: 14px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 18px;
+            border-left: 5px solid #ff8c00;
+        }
+
+        /* SECTION */
+
+        .section {
+            margin-top: 28px;
+        }
+
+        .section h3 {
+            color: #063b66;
+            border-bottom: 2px solid #ff8c00;
+            padding-bottom: 8px;
+        }
+
+        .details {
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .details p {
+            margin: 7px 0;
+        }
+
+        /* AMOUNT */
+
+        .amount {
+            background: #f1f7fb;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 20px;
+        }
+
+        .amount span {
+            color: #ff8c00;
+            font-weight: bold;
+        }
+
+        /* PAYMENT */
+
+        .success {
+            color: #20a844;
+            font-weight: bold;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            border: none;
+            padding: 14px 25px;
+            margin: 5px;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .print-btn {
+            background: #ff8c00;
+            color: white;
+        }
+
+        .home-btn {
+            background: #063b66;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        /* PRINT */
+
+        @media print {
+
+            .buttons {
+                display: none;
+            }
+
+            header {
+                background: #063b66 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .ticket {
+                width: 100%;
+                max-width: 100%;
+                margin: 10px auto;
+                box-shadow: none;
+            }
+
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .ticket {
+                padding: 20px;
+            }
+
+            .details {
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>
+            🚌 Maharashtra Bus Booking
+        </h1>
+
+        <p>
+            Your ticket has been confirmed
+        </p>
+
+    </header>
+
+
+    <!-- TICKET -->
+
+    <div class="ticket">
+
+
+        <h2 class="confirmed">
+
+            🎫 Booking Confirmed ✓
+
+        </h2>
+
+
+        <!-- BOOKING ID -->
+
+        <div class="booking-id">
+
+            <b>Booking ID:</b>
+
+            <span id="bookingId">
+                -
+            </span>
+
+        </div>
+
+
+        <!-- PASSENGER -->
+
+        <div class="section">
+
+            <h3>
+                👤 Passenger Details
+            </h3>
+
+            <div class="details">
+
+                <p>
+
+                    <b>Passenger Name:</b>
+
+                    <span id="passengerName">
+                        -
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- JOURNEY -->
+
+        <div class="section">
+
+            <h3>
+                🚌 Journey Details
+            </h3>
+
+            <div class="details">
+
+                <p>
+
+                    <b>From:</b>
+
+                    <span id="fromCity">
+                        -
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <b>To:</b>
+
+                    <span id="toCity">
+                        -
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <b>Bus:</b>
+
+                    <span id="busName">
+                        -
+                    </span>
+
+                </p>
+
+
+                <p>
+
+                    <b>Journey Date:</b>
+
+                    <span id="journeyDate">
+                        -
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOKING -->
+
+        <div class="section">
+
+            <h3>
+                💺 Booking Details
+            </h3>
+
+            <div class="details">
+
+                <p>
+
+                    <b>Selected Seats:</b>
+
+                    <span id="seatNumbers">
+                        -
+                    </span>
+
+                </p>
+
+
+                <div class="amount">
+
+                    <b>Total Amount:</b>
+
+                    <span>
+
+                        ₹<span id="totalAmount">
+                            0
+                        </span>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PAYMENT -->
+
+        <div class="section">
+
+            <h3>
+                💳 Payment Status
+            </h3>
+
+            <div class="details">
+
+                <p>
+
+                    <b>Status:</b>
+
+                    <span
+                        class="success"
+                        id="paymentStatus">
+
+                        Payment Successful ✓
+
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <button
+                class="print-btn"
+                onclick="window.print()">
+
+                🖨 Print Ticket
+
+            </button>
+
+
+            <button
+                class="home-btn"
+                onclick="goHome()">
+
+                🏠 Back to Home
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        /* ================================
+           GET BOOKING DATA
+        ================================= */
+
+        var passengerName =
+            localStorage.getItem("passengerName") ||
+            "Passenger";
+
+
+        var busName =
+            localStorage.getItem("busName") ||
+            "-";
+
+
+        var from =
+            localStorage.getItem("from") ||
+            "-";
+
+
+        var to =
+            localStorage.getItem("to") ||
+            "-";
+
+
+        var date =
+            localStorage.getItem("date") ||
+            "-";
+
+
+        /*
+            selectedSeats is stored as:
+
+            "V1, V2, 5, 7"
+
+            Therefore JSON.parse()
+            is NOT required.
+        */
+
+        var selectedSeats =
+            localStorage.getItem("selectedSeats") ||
+            "None";
+
+
+        var totalAmount =
+            localStorage.getItem("totalAmount") ||
+            "0";
+
+
+        var paymentStatus =
+            localStorage.getItem("paymentStatus") ||
+            "Payment Successful";
+
+
+        /* ================================
+           DISPLAY DATA
+        ================================= */
+
+        document.getElementById(
+            "passengerName"
+        ).innerText =
+            passengerName;
+
+
+        document.getElementById(
+            "busName"
+        ).innerText =
+            busName;
+
+
+        document.getElementById(
+            "fromCity"
+        ).innerText =
+            from;
+
+
+        document.getElementById(
+            "toCity"
+        ).innerText =
+            to;
+
+
+        document.getElementById(
+            "seatNumbers"
+        ).innerText =
+            selectedSeats;
+
+
+        document.getElementById(
+            "totalAmount"
+        ).innerText =
+            totalAmount;
+
+
+        document.getElementById(
+            "paymentStatus"
+        ).innerText =
+            paymentStatus + " ✓";
+
+
+        /* ================================
+           DATE
+        ================================= */
+
+        if (date !== "-") {
+
+            var newDate =
+                new Date(date);
+
+            if (!isNaN(newDate.getTime())) {
+
+                document.getElementById(
+                    "journeyDate"
+                ).innerText =
+                    newDate.toLocaleDateString(
+                        "en-GB"
+                    );
+
+            } else {
+
+                document.getElementById(
+                    "journeyDate"
+                ).innerText =
+                    date;
+
+            }
+
+        }
+
+
+        /* ================================
+           BOOKING ID
+        ================================= */
+
+        var bookingId =
+            localStorage.getItem("bookingId");
+
+
+        if (!bookingId) {
+
+            bookingId =
+                "MB" +
+                Math.floor(
+                    100000 +
+                    Math.random() * 900000
+                );
+
+            localStorage.setItem(
+                "bookingId",
+                bookingId
+            );
+
+        }
+
+
+        document.getElementById(
+            "bookingId"
+        ).innerText =
+            bookingId;
+
+
+        /* ================================
+           HOME
+        ================================= */
+
+        function goHome() {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

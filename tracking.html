@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Find Nearby Bus - Maharashtra Bus</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <!-- MAPPLS MAP SDK -->
+    <script
+        src="https://sdk.mappls.com/map/sdk/web?v=3.0&access_token=lifoqnhvweaeuainvcbtanycrflwxjbhyovc&callback=initMap"
+        defer>
+    </script>
+
+    <style>
+
+        /* MAP */
+
+        .map-section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+        .map-section h2 {
+            color: #063b66;
+            margin-bottom: 15px;
+        }
+
+        #map {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+
+        /* BUS COUNT */
+
+        .bus-count {
+            margin-top: 15px;
+            padding: 15px;
+            background: #eef7fc;
+            border-left: 5px solid #0878b8;
+            border-radius: 8px;
+            color: #063b66;
+            font-weight: bold;
+        }
+
+
+        /* BUS TABLE */
+
+        .bus-table-section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .bus-table-section h2 {
+            color: #063b66;
+            margin-bottom: 15px;
+        }
+
+        .bus-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .bus-table th {
+            background: #063b66;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        .bus-table td {
+            padding: 13px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .bus-table tr:hover {
+            background: #f5fbff;
+        }
+
+        .running {
+            color: green;
+            font-weight: bold;
+        }
+
+        .book-button {
+            background: #ff8c00;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .book-button:hover {
+            background: #e67600;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            #map {
+                height: 350px;
+            }
+
+            .bus-table {
+                font-size: 13px;
+            }
+
+            .bus-table th,
+            .bus-table td {
+                padding: 9px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <h2>
+            🚌 Maharashtra Bus
+        </h2>
+
+        <div>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="busses.html">
+                Buses
+            </a>
+
+            <a href="tracking.html">
+                Find Bus
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>
+            🆘 Stuck on the Road?
+        </h1>
+
+        <p>
+            Find buses running towards your destination
+        </p>
+
+    </section>
+
+
+    <!-- TRACKING AREA -->
+
+    <div class="tracking-container">
+
+        <div class="tracking-box">
+
+            <h2>
+                🔎 Find a Bus Near You
+            </h2>
+
+            <p class="tracking-description">
+
+                Enter your current location and
+                destination to find available buses.
+
+            </p>
+
+
+            <!-- FORM -->
+
+            <div class="tracking-form">
+
+
+                <!-- CURRENT LOCATION -->
+
+                <div>
+
+                    <label for="currentLocation">
+
+                        📍 Current Location
+
+                    </label>
+
+                    <select id="currentLocation">
+
+                        <option value="">
+                            Select Current Location
+                        </option>
+
+                        <option>Mumbai</option>
+                        <option>Pune</option>
+                        <option>Satara</option>
+                        <option>Kolhapur</option>
+                        <option>Sangli</option>
+                        <option>Solapur</option>
+                        <option>Latur</option>
+                        <option>Nanded</option>
+                        <option>Nashik</option>
+                        <option>Jalgaon</option>
+                        <option>Nagpur</option>
+                        <option>Akola</option>
+                        <option>Amravati</option>
+                        <option>Chhatrapati Sambhajinagar</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DESTINATION -->
+
+                <div>
+
+                    <label for="destination">
+
+                        🎯 Where do you want to go?
+
+                    </label>
+
+                    <select id="destination">
+
+                        <option value="">
+                            Select Destination
+                        </option>
+
+                        <option>Mumbai</option>
+                        <option>Pune</option>
+                        <option>Satara</option>
+                        <option>Kolhapur</option>
+                        <option>Sangli</option>
+                        <option>Solapur</option>
+                        <option>Latur</option>
+                        <option>Nanded</option>
+                        <option>Nashik</option>
+                        <option>Jalgaon</option>
+                        <option>Nagpur</option>
+                        <option>Akola</option>
+                        <option>Amravati</option>
+                        <option>Chhatrapati Sambhajinagar</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="button"
+                    onclick="findBuses()">
+
+                    🚌 Find Running Buses
+
+                </button>
+
+            </div>
+
+
+            <!-- RESULTS -->
+
+            <div id="busResults"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAP -->
+
+    <section class="map-section">
+
+        <h2>
+            🗺️ Live Running Bus Map
+        </h2>
+
+        <div id="map"></div>
+
+        <div class="bus-count">
+
+            🚌 Running Buses on Map:
+            <span id="busCount">0</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- BUS TABLE -->
+
+    <section class="bus-table-section">
+
+        <h2>
+            📋 Running Bus Information
+        </h2>
+
+        <table class="bus-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Bus</th>
+                    <th>Route</th>
+                    <th>Current Location</th>
+                    <th>Destination</th>
+                    <th>ETA</th>
+                    <th>Fare</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="busTableBody"></tbody>
+
+        </table>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+
+    <div class="tracking-info">
+
+        <div class="info-icon">
+            ℹ️
+        </div>
+
+        <div>
+
+            <h3>
+                How does this feature work?
+            </h3>
+
+            <p>
+
+                Enter your current location and
+                destination. The system checks the
+                available bus routes and shows buses
+                running towards your destination.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            🚌 Maharashtra Bus Booking System
+        </p>
+
+        <p>
+            BSc Computer Science Mini Project
+        </p>
+
+        <p>
+            © 2026 All Rights Reserved
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/tracking.js"></script>
+
+</body>
+
+</html>

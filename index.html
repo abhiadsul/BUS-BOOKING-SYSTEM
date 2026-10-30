@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Maharashtra Bus Booking</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+         ========================= -->
+
+    <nav>
+
+        <h2>🚌 Maharashtra Bus</h2>
+
+
+        <div>
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="busses.html">
+                Buses
+            </a>
+
+
+            <a href="tracking.html">
+                Find Bus
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO SECTION
+         ========================= -->
+
+    <section class="hero">
+
+        <h1>
+            Maharashtra Bus Booking
+        </h1>
+
+
+        <p>
+            Book your bus journey easily
+            across Maharashtra
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         BUS SEARCH
+         ========================= -->
+
+    <div class="search-box">
+
+
+        <h2>
+            🔎 Search Your Bus
+        </h2>
+
+
+        <div class="search-form">
+
+
+            <!-- FROM -->
+
+            <div class="field">
+
+                <label>
+                    From
+                </label>
+
+
+                <select id="from">
+
+                    <option>
+                        Select City
+                    </option>
+
+                    <option>
+                        Mumbai
+                    </option>
+
+                    <option>
+                        Pune
+                    </option>
+
+                    <option>
+                        Nashik
+                    </option>
+
+                    <option>
+                        Nagpur
+                    </option>
+
+                    <option>
+                        Kolhapur
+                    </option>
+
+                    <option>
+                        Solapur
+                    </option>
+
+                    <option>
+                        Satara
+                    </option>
+
+                    <option>
+                        Sangli
+                    </option>
+
+                    <option>
+                        Jalgaon
+                    </option>
+
+                    <option>
+                        Dhule
+                    </option>
+
+                    <option>
+                        Nanded
+                    </option>
+
+                    <option>
+                        Latur
+                    </option>
+
+                    <option>
+                        Amravati
+                    </option>
+
+                    <option>
+                        Akola
+                    </option>
+
+                    <option>
+                        Chhatrapati Sambhajinagar
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- TO -->
+
+            <div class="field">
+
+                <label>
+                    To
+                </label>
+
+
+                <select id="to">
+
+                    <option>
+                        Select City
+                    </option>
+
+                    <option>
+                        Mumbai
+                    </option>
+
+                    <option>
+                        Pune
+                    </option>
+
+                    <option>
+                        Nashik
+                    </option>
+
+                    <option>
+                        Nagpur
+                    </option>
+
+                    <option>
+                        Kolhapur
+                    </option>
+
+                    <option>
+                        Solapur
+                    </option>
+
+                    <option>
+                        Satara
+                    </option>
+
+                    <option>
+                        Sangli
+                    </option>
+
+                    <option>
+                        Jalgaon
+                    </option>
+
+                    <option>
+                        Dhule
+                    </option>
+
+                    <option>
+                        Nanded
+                    </option>
+
+                    <option>
+                        Latur
+                    </option>
+
+                    <option>
+                        Amravati
+                    </option>
+
+                    <option>
+                        Akola
+                    </option>
+
+                    <option>
+                        Chhatrapati Sambhajinagar
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- DATE -->
+
+            <div class="field">
+
+                <label>
+                    Journey Date
+                </label>
+
+
+                <input
+                    type="date"
+                    id="date">
+
+            </div>
+
+
+
+            <!-- SEARCH BUTTON -->
+
+            <button
+                class="search-button"
+                onclick="searchBuses()">
+
+                Search Buses
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         WHY CHOOSE US
+         ========================= -->
+
+    <div class="section-title">
+
+        <h2>
+            Why Choose Us?
+        </h2>
+
+    </div>
+
+
+
+    <div class="features">
+
+
+        <!-- FEATURE 1 -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🔎
+            </div>
+
+
+            <h3>
+                Easy Search
+            </h3>
+
+
+            <p>
+                Quickly find buses according
+                to your journey.
+            </p>
+
+        </div>
+
+
+
+        <!-- FEATURE 2 -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                💺
+            </div>
+
+
+            <h3>
+                Seat Selection
+            </h3>
+
+
+            <p>
+                Select your preferred seat
+                easily.
+            </p>
+
+        </div>
+
+
+
+        <!-- FEATURE 3 -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                💳
+            </div>
+
+
+            <h3>
+                Easy Payment
+            </h3>
+
+
+            <p>
+                Simple and secure demo
+                payment process.
+            </p>
+
+        </div>
+
+
+
+        <!-- FEATURE 4 -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🎫
+            </div>
+
+
+            <h3>
+                Instant Ticket
+            </h3>
+
+
+            <p>
+                Get your booking confirmation
+                instantly.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         🆘 STUCK ON THE ROAD
+         ========================= -->
+
+    <section class="stuck-section">
+
+
+        <div class="stuck-content">
+
+
+            <!-- ICON -->
+
+            <div class="stuck-icon">
+
+                🆘
+
+            </div>
+
+
+
+            <!-- CONTENT -->
+
+            <div>
+
+
+                <h2>
+                    Stuck on the Road?
+                </h2>
+
+
+                <p>
+
+                    Are you stuck somewhere and
+                    want to know if a bus is currently
+                    running towards your destination?
+
+                </p>
+
+
+                <button
+                    class="track-button"
+                    onclick="window.location.href='tracking.html'">
+
+                    🚌 Find Running Buses
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         MAHARASHTRA CITIES
+         ========================= -->
+
+    <div class="section-title">
+
+
+        <h2>
+            Major Maharashtra Cities
+        </h2>
+
+
+        <p>
+
+            Find buses connecting major
+            cities across Maharashtra
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="cities">
+
+
+        <div class="city">
+            Mumbai
+        </div>
+
+
+        <div class="city">
+            Pune
+        </div>
+
+
+        <div class="city">
+            Nashik
+        </div>
+
+
+        <div class="city">
+            Nagpur
+        </div>
+
+
+        <div class="city">
+            Kolhapur
+        </div>
+
+
+        <div class="city">
+            Satara
+        </div>
+
+
+        <div class="city">
+            Solapur
+        </div>
+
+
+        <div class="city">
+            Sangli
+        </div>
+
+
+        <div class="city">
+            Nanded
+        </div>
+
+
+        <div class="city">
+            Latur
+        </div>
+
+
+        <div class="city">
+            Amravati
+        </div>
+
+
+        <div class="city">
+            Akola
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
+    <footer>
+
+
+        <p>
+            🚌 Maharashtra Bus Booking System
+        </p>
+
+
+        <p>
+            BSc Computer Science Mini Project
+        </p>
+
+
+        <p>
+            © 2026 All Rights Reserved
+        </p>
+
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script src="js/search.js"></script>
+
+
+</body>
+
+</html>
